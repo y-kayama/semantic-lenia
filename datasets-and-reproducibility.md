@@ -5,7 +5,7 @@ date: 2026-07-27 12:00:00 +0900
 katex: true
 ---
 
-[🏠 Home](./index.html) | [Phase Diagram](./phase-diagram.html) | [Dashboard](./dashboard.html) | [Substrate Rigidity](./substrate-rigidity.html) | [Lifespan & Aging](./lifespan-and-aging.html) | [Gallery](./phenotype-gallery.html) | [Datasets](./datasets-and-reproducibility.html) | [Roadmap](./future-roadmap.html)
+[🏠 Home](./index.html) &nbsp;&bull;&nbsp; [Phase Diagram](./phase-diagram.html) &nbsp;&bull;&nbsp; [Dashboard](./dashboard.html) &nbsp;&bull;&nbsp; [Substrate Rigidity](./substrate-rigidity.html) &nbsp;&bull;&nbsp; [Lifespan & Aging](./lifespan-and-aging.html) &nbsp;&bull;&nbsp; [Gallery](./phenotype-gallery.html) &nbsp;&bull;&nbsp; [Datasets](./datasets-and-reproducibility.html) &nbsp;&bull;&nbsp; [Roadmap](./future-roadmap.html)
 
 # Datasets and Reproducibility
 

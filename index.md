@@ -5,7 +5,7 @@ date: 2026-07-27 12:00:00 +0900
 katex: true
 ---
 
-[🏠 Home](./index.html) | [Phase Diagram](./phase-diagram.html) | [Dashboard](./dashboard.html) | [Substrate Rigidity](./substrate-rigidity.html) | [Lifespan & Aging](./lifespan-and-aging.html) | [Gallery](./phenotype-gallery.html) | [Datasets](./datasets-and-reproducibility.html) | [Roadmap](./future-roadmap.html)
+[🏠 Home](./index.html) &nbsp;&bull;&nbsp; [Phase Diagram](./phase-diagram.html) &nbsp;&bull;&nbsp; [Dashboard](./dashboard.html) &nbsp;&bull;&nbsp; [Substrate Rigidity](./substrate-rigidity.html) &nbsp;&bull;&nbsp; [Lifespan & Aging](./lifespan-and-aging.html) &nbsp;&bull;&nbsp; [Gallery](./phenotype-gallery.html) &nbsp;&bull;&nbsp; [Datasets](./datasets-and-reproducibility.html) &nbsp;&bull;&nbsp; [Roadmap](./future-roadmap.html)
 
 # Semantic Lenia: Emergence of Homeostatic Solitons in LLM Logit Space
 
@@ -62,8 +62,8 @@ Where $\mathbf{Z}_{\text{base}}$ represents the **Syntactic Inertia** (the model
 
 To thoroughly examine the properties of Semantic Lenia, we have prepared dedicated pages exploring its global and microscopic properties:
 
-- **[Phase Diagram & Taxonomy](phase-diagram.md)**: Explore the exhaustive $779$-point parameter sweep mapping the macroscopic "habitability" of the $70\text{B}$ Llama-3.1 manifold, detailing our rigorous classification tree of emergent cognitive phenotypes.
-- **[Real-time Trajectory & EKG Dashboard](dashboard.md)**: Observe the microscopic orbital path of hidden states ($\mathbf{c}_t$) projected onto 2D PCA spaces, tracked concurrently with a "Semantic EKG" monitor showing real-time homeostatic breathing and linguistic entropy.
+- **[Phase Diagram & Taxonomy](./phase-diagram.html)**: Explore the exhaustive $779$-point parameter sweep mapping the macroscopic "habitability" of the $70\text{B}$ Llama-3.1 manifold, detailing our rigorous classification tree of emergent cognitive phenotypes.
+- **[Real-time Trajectory & EKG Dashboard](./dashboard.html)**: Observe the microscopic orbital path of hidden states ($\mathbf{c}_t$) projected onto 2D PCA spaces, tracked concurrently with a "Semantic EKG" monitor showing real-time homeostatic breathing and linguistic entropy.
 
 ---
 
