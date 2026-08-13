@@ -1,0 +1,26 @@
+# ─── macOS / Windows System Files ───
+.DS_Store
+Thumbs.db
+*.lnk
+
+# ─── Python & Jupyter ───
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+.pytest_cache/
+.egs/
+
+# ─── Jekyll (GitHub Pages Web site local build) ───
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor
+
+# ─── VS Code / IDLE Settings ───
+.vscode/
+.idea/
+*.swp

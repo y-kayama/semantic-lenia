@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Semantic Lenia: Homeostatic Soliton Orbit</title>
+        <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+        <style>
+            body {
+                background-color: #0d1117;
+                color: #c9d1d9;
+                font-family: sans-serif;
+                text-align: center;
+            }
+            #plot {
+                width: 80%;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            #text-box {
+                font-size: 1.2em;
+                min-height: 60px;
+                padding: 10px;
+                background: #161b22;
+                border: 1px solid #30363d;
+                border-radius: 6px;
+                width: 80%;
+                max-width: 900px;
+                margin: 40px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Emergence of Homeostatic Soliton in PCA Space</h2>
+        <p>
+            Watching the trajectory orbit the target concept without collapsing
+            (Crystallization).
+        </p>
+
+        <div id="plot"></div>
+        <div id="text-box">
+            <span style="color: #8b949e"
+                >Generated Text will appear here...</span
+            >
+        </div>
+
+        <script>
+            json_path = "./soliton_trajectory_8b_mu_0-49_sigma_0-03.json";
+            // soliton_trajectory.json を読み込む想定
+            fetch(json_path)
+                .then((response) => response.json())
+                .then((data) => {
+                    const traj = data.trajectory;
+                    const target = data.target_centroid;
+
+                    const frames = [];
+                    const x_vals = [];
+                    const y_vals = [];
+                    const text_vals = [];
+
+                    // ターゲット重力源(Target Kernel k)
+                    const traceTarget = {
+                        x: [target.x],
+                        y: [target.y],
+                        mode: "markers",
+                        marker: { symbol: "star", size: 15, color: "gold" },
+                        name: "Target Centroid (k)",
+                    };
+
+                    // フレーム生成 (軌跡を徐々に伸ばすアニメーション)
+                    for (let i = 0; i < traj.length; i++) {
+                        x_vals.push(traj[i].x);
+                        y_vals.push(traj[i].y);
+                        text_vals.push(traj[i].token);
+
+                        frames.push({
+                            name: `step${i}`,
+                            data: [
+                                traceTarget,
+                                {
+                                    x: x_vals.slice(),
+                                    y: y_vals.slice(),
+                                    mode: "lines+markers",
+                                    line: { color: "#39FF14", width: 2 },
+                                    marker: { size: 6, color: "#39FF14" },
+                                    name: "Context Trajectory (c_t)",
+                                },
+                            ],
+                        });
+                    }
+
+                    const layout = {
+                        plot_bgcolor: "#0d1117",
+                        paper_bgcolor: "#0d1117",
+                        font: { color: "#c9d1d9" },
+                        xaxis: {
+                            title: "Principal Component 1",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [
+                                Math.min(...x_vals) - 0.2,
+                                Math.max(...x_vals) + 0.2,
+                            ],
+                        },
+                        yaxis: {
+                            title: "Principal Component 2",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [
+                                Math.min(...y_vals) - 0.2,
+                                Math.max(...y_vals) + 0.2,
+                            ],
+                        },
+                        updatemenus: [
+                            {
+                                type: "buttons",
+                                showactive: false,
+                                x: 0.5,
+                                y: -0.3,
+                                xanchor: "center",
+                                yanchor: "top",
+                                buttons: [
+                                    {
+                                        label: "Play Orbit",
+                                        method: "animate",
+                                        args: [
+                                            null,
+                                            {
+                                                frame: {
+                                                    duration: 150,
+                                                    redraw: false,
+                                                },
+                                                fromcurrent: true,
+                                                transition: { duration: 0 },
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    };
+
+                    Plotly.newPlot(
+                        "plot",
+                        [traceTarget, { x: [], y: [], mode: "lines+markers" }],
+                        layout,
+                    ).then(function () {
+                        Plotly.addFrames("plot", frames);
+                    });
+
+                    // アニメーション再生に合わせてテキストボックスを更新
+                    let currentStep = 0;
+                    document
+                        .getElementById("plot")
+                        .on("plotly_animatingframe", function (e) {
+                            const stepText = text_vals
+                                .slice(0, currentStep + 1)
+                                .join("");
+                            document.getElementById("text-box").innerHTML =
+                                stepText;
+                            currentStep++;
+                        });
+                });
+        </script>
+    </body>
+</html>

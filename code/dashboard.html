@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Semantic Lenia: Synchronized PCA & EKG Dashboard</title>
+        <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+        <style>
+            body {
+                background-color: #0d1117;
+                color: #c9d1d9;
+                font-family: sans-serif;
+                text-align: center;
+            }
+            #dashboard {
+                width: 95%;
+                max-width: 1400px;
+                height: 600px;
+                margin: 0 auto;
+            }
+            #text-box {
+                margin: 20px auto;
+                padding: 20px;
+                width: 85%;
+                max-width: 1200px;
+                background: #161b22;
+                border: 1px solid #30363d;
+                border-radius: 6px;
+                text-align: left;
+                font-size: 1.1em;
+                line-height: 1.5;
+                min-height: 80px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            .highlight {
+                color: #39ff14;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Semantic Lenia: Real-time Trajectory and Thermodynamic EKG</h2>
+        <p>
+            Press Play or use the slider to observe the correlation between the
+            orbital mechanics and internal stress.
+        </p>
+
+        <div id="dashboard"></div>
+        <div id="text-box">
+            <span style="color: #8b949e"
+                >Generated text will appear here...</span
+            >
+        </div>
+
+        <script>
+            json_path = "./soliton_trajectory.json"; // Path to the soliton trajectory JSON file
+            fetch(json_path)
+                .then((response) => response.json())
+                .then((data) => {
+                    const traj = data.trajectory;
+                    const target = data.target_centroid;
+                    const params = data.parameters;
+
+                    const steps = [],
+                        x_vals = [],
+                        y_vals = [],
+                        u_vals = [],
+                        ppl_vals = [],
+                        text_vals = [];
+
+                    traj.forEach((d) => {
+                        steps.push(d.step);
+                        x_vals.push(d.x);
+                        y_vals.push(d.y);
+                        u_vals.push(d.u);
+                        ppl_vals.push(d.ppl);
+                        text_vals.push(d.token);
+                    });
+
+                    const maxStep = Math.max(...steps);
+                    const delta = params.sigma * Math.sqrt(2 * Math.log(2));
+
+                    // Initialize traces with starting coordinates
+                    const traceTarget = {
+                        x: [target.x],
+                        y: [target.y],
+                        mode: "markers",
+                        marker: { symbol: "star", size: 15, color: "gold" },
+                        name: "Target (k)",
+                    };
+                    const tracePCA = {
+                        x: [x_vals[0]],
+                        y: [y_vals[0]],
+                        mode: "lines+markers",
+                        line: { color: "#39FF14", width: 2 },
+                        marker: { size: 6, color: "#39FF14" },
+                        name: "Orbit (c_t)",
+                    };
+                    const traceU = {
+                        x: [0],
+                        y: [u_vals[0]],
+                        xaxis: "x2",
+                        yaxis: "y2",
+                        mode: "lines",
+                        line: { color: "#39FF14", width: 2 },
+                        name: "U_t",
+                    };
+                    const tracePPL = {
+                        x: [0],
+                        y: [ppl_vals[0]],
+                        xaxis: "x3",
+                        yaxis: "y3",
+                        mode: "lines",
+                        line: { color: "#FF007F", width: 2 },
+                        name: "PPL",
+                    };
+
+                    // Layout configuration (Left: PCA, Top-Right: U_t, Bottom-Right: PPL)
+                    const layout = {
+                        plot_bgcolor: "#0d1117",
+                        paper_bgcolor: "#0d1117",
+                        font: { color: "#c9d1d9" },
+                        showlegend: false,
+                        // PCA Region
+                        xaxis: {
+                            domain: [0, 0.45],
+                            title: "PC 1",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [
+                                Math.min(...x_vals) - 0.1,
+                                Math.max(...x_vals) + 0.1,
+                            ],
+                        },
+                        yaxis: {
+                            domain: [0, 1],
+                            title: "PC 2",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [
+                                Math.min(...y_vals) - 0.1,
+                                Math.max(...y_vals) + 0.1,
+                            ],
+                        },
+                        // U_t Region
+                        xaxis2: {
+                            domain: [0.55, 1],
+                            anchor: "y2",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [0, maxStep],
+                        },
+                        yaxis2: {
+                            domain: [0.55, 1],
+                            anchor: "x2",
+                            title: "Semantic Alignment (U_t)",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [
+                                Math.min(...u_vals) - 0.05,
+                                Math.max(...u_vals) + 0.05,
+                            ],
+                        },
+                        // PPL Region
+                        xaxis3: {
+                            domain: [0.55, 1],
+                            anchor: "y3",
+                            title: "Time Step (Tokens)",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [0, maxStep],
+                        },
+                        yaxis3: {
+                            domain: [0, 0.45],
+                            anchor: "x3",
+                            title: "Perplexity (Log)",
+                            type: "log",
+                            showgrid: true,
+                            gridcolor: "#21262d",
+                            range: [0, Math.log10(Math.max(...ppl_vals) * 2)],
+                        },
+
+                        // Reference lines for U_t (Target Gravity and Cutoff Wall)
+                        shapes: [
+                            {
+                                type: "line",
+                                xref: "x2",
+                                yref: "y2",
+                                x0: 0,
+                                x1: maxStep,
+                                y0: params.mu,
+                                y1: params.mu,
+                                line: { color: "gold", width: 1, dash: "dash" },
+                            },
+                            {
+                                type: "line",
+                                xref: "x2",
+                                yref: "y2",
+                                x0: 0,
+                                x1: maxStep,
+                                y0: params.mu - delta,
+                                y1: params.mu - delta,
+                                line: { color: "cyan", width: 1, dash: "dot" },
+                            },
+                        ],
+                    };
+
+                    // Generate animation frames and slider steps
+                    const frames = [];
+                    const sliderSteps = [];
+
+                    for (let i = 0; i < traj.length; i++) {
+                        const currentStepText = text_vals
+                            .slice(0, i + 1)
+                            .join("");
+
+                        frames.push({
+                            name: i.toString(),
+                            data: [
+                                traceTarget,
+                                {
+                                    x: x_vals.slice(0, i + 1),
+                                    y: y_vals.slice(0, i + 1),
+                                }, // PCA
+                                {
+                                    x: steps.slice(0, i + 1),
+                                    y: u_vals.slice(0, i + 1),
+                                }, // U_t
+                                {
+                                    x: steps.slice(0, i + 1),
+                                    y: ppl_vals.slice(0, i + 1),
+                                }, // PPL
+                            ],
+                        });
+
+                        sliderSteps.push({
+                            label: i.toString(),
+                            method: "animate",
+                            args: [
+                                [i.toString()],
+                                {
+                                    mode: "immediate",
+                                    transition: { duration: 0 },
+                                    frame: { duration: 0, redraw: false },
+                                },
+                            ],
+                        });
+                    }
+
+                    // Configure slider and play/pause buttons
+                    layout.updatemenus = [
+                        {
+                            x: 0.1,
+                            y: -0.15,
+                            type: "buttons",
+                            showactive: false,
+                            direction: "left",
+                            pad: { t: 20, r: 10 },
+                            buttons: [
+                                {
+                                    label: "▶ Play",
+                                    method: "animate",
+                                    args: [
+                                        null,
+                                        {
+                                            fromcurrent: true,
+                                            transition: { duration: 0 },
+                                            frame: {
+                                                duration: 100,
+                                                redraw: false,
+                                            },
+                                        },
+                                    ],
+                                },
+                                {
+                                    label: "⏸ Pause",
+                                    method: "animate",
+                                    args: [
+                                        [null],
+                                        {
+                                            mode: "immediate",
+                                            transition: { duration: 0 },
+                                            frame: {
+                                                duration: 0,
+                                                redraw: false,
+                                            },
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ];
+                    layout.sliders = [
+                        {
+                            pad: { l: 130, t: 30 },
+                            currentvalue: {
+                                visible: true,
+                                prefix: "Token Step: ",
+                                font: { color: "#c9d1d9" },
+                            },
+                            steps: sliderSteps,
+                        },
+                    ];
+
+                    // Initialize plot and add frames
+                    Plotly.newPlot(
+                        "dashboard",
+                        [traceTarget, tracePCA, traceU, tracePPL],
+                        layout,
+                    ).then(function () {
+                        Plotly.addFrames("dashboard", frames);
+                    });
+
+                    // Update text box on slider movement or animation playback
+                    const textBox = document.getElementById("text-box");
+                    document
+                        .getElementById("dashboard")
+                        .on("plotly_animatingframe", function (e) {
+                            const stepIdx = parseInt(e.name);
+                            const currentText = text_vals
+                                .slice(0, stepIdx + 1)
+                                .join("")
+                                .replace(/\n/g, "<br>");
+                            // Highlight the most recently generated token
+                            const highlightedText =
+                                text_vals
+                                    .slice(0, stepIdx)
+                                    .join("")
+                                    .replace(/\n/g, "<br>") +
+                                `<span class="highlight">${text_vals[stepIdx].replace(/\n/g, "<br>")}</span>`;
+                            textBox.innerHTML = highlightedText;
+                        });
+                });
+        </script>
+    </body>
+</html>

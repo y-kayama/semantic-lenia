@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/assets/main.css" />
+
+        <!-- KaTeX（数式）の自動読み込み設定 -->
+        {% if page.katex %}
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
+        />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"
+        ></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body)"
+        ></script>
+        <!-- 自動レンダリングスクリプト（$$ や $ を数式に変換） -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                renderMathInElement(document.body, {
+                    // ここで区切り文字（delimiters）をカスタマイズします
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true }, // 独立行の数式
+                        { left: "$", right: "$", display: false }, // ←★これを追加（インライン数式）
+                        { left: "\\(", right: "\\)", display: false }, // デフォルトのインライン数式
+                        { left: "\\[", right: "\\]", display: true }, // デフォルトの独立行数式
+                    ],
+                    // 誤動作を防ぐために数式として処理しないタグを指定
+                    ignoredTags: [
+                        "script",
+                        "noscript",
+                        "style",
+                        "textarea",
+                        "pre",
+                        "code",
+                    ],
+                });
+            });
+        </script>
+        {% endif %}
+        <title>{{ page.title }}</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <main class="page-content">
+            <div class="wrapper">{{ content }}</div>
+        </main>
+    </body>
+</html>

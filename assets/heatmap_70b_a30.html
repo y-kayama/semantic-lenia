@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Interactive Phase Diagram: Semantic Lenia</title>
+        <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+        <style>
+            body {
+                background-color: #0d1117;
+                color: #c9d1d9;
+                font-family: sans-serif;
+                text-align: center;
+            }
+            #heatmap {
+                width: 95%;
+                max-width: 1100px;
+                height: 600px;
+                margin: 0 auto;
+            }
+            .legend-box {
+                margin-top: 15px;
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            .legend-item {
+                display: flex;
+                align-items: center;
+                font-size: 0.85em;
+            }
+            .color-swatch {
+                width: 14px;
+                height: 14px;
+                margin-right: 6px;
+                border: 1px solid #30363d;
+                border-radius: 3px;
+            }
+
+            /* 追加: テキスト表示用の固定ボックス */
+            #text-box {
+                margin: 20px auto;
+                padding: 20px;
+                width: 80%;
+                max-width: 900px;
+                background: #161b22;
+                border: 1px solid #30363d;
+                border-radius: 6px;
+                text-align: left;
+                font-size: 1.1em;
+                line-height: 1.5;
+                min-height: 120px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Emergent Phenotypes in Macroscopic Logit Space</h2>
+        <h3>Llama-3.1-70B: 4-bit quantization, &alpha; = 30.0</h3>
+
+        <div class="legend-box">
+            <div class="legend-item">
+                <div class="color-swatch" style="background: #808080"></div>
+                Baseline Drift
+            </div>
+            <div class="legend-item">
+                <div class="color-swatch" style="background: #dc143c"></div>
+                Semantic Crystallization
+            </div>
+            <div class="legend-item">
+                <div class="color-swatch" style="background: #90ee90"></div>
+                Homeostatic Soliton (Deep Isomorphism)
+            </div>
+            <div class="legend-item">
+                <div class="color-swatch" style="background: #32cd32"></div>
+                Homeostatic Soliton (Surface Metaphor)
+            </div>
+            <div class="legend-item">
+                <div class="color-swatch" style="background: #00ffff"></div>
+                Abductive Leap
+            </div>
+            <div class="legend-item">
+                <div class="color-swatch" style="background: #4169e1"></div>
+                Attractor Hijack
+            </div>
+            <div class="legend-item">
+                <div class="color-swatch" style="background: #ff0000"></div>
+                Syntactic Rupture
+            </div>
+        </div>
+
+        <div id="heatmap"></div>
+
+        <!-- 追加: テキスト表示エリア -->
+        <div id="text-box">
+            <span style="color: #8b949e; font-style: italic"
+                >Hover over any coordinate in the phase diagram to reveal the
+                generated text...</span
+            >
+        </div>
+
+        <script>
+            json_path = "./heatmap_data_70b_a30.json";
+            fetch(json_path)
+                .then((response) => response.json())
+                .then((data) => {
+                    const discreteColorscale = [
+                        [0 / 6, "#808080"],
+                        [1 / 6, "#808080"],
+                        [1 / 6, "#dc143c"],
+                        [2 / 6, "#dc143c"],
+                        [2 / 6, "#90ee90"],
+                        [3 / 6, "#90ee90"],
+                        [3 / 6, "#32cd32"],
+                        [4 / 6, "#32cd32"],
+                        [4 / 6, "#00ffff"],
+                        [5 / 6, "#00ffff"],
+                        [5 / 6, "#4169e1"],
+                        [6 / 6, "#4169e1"],
+                        [6 / 6, "#ff0000"],
+                        [1.0, "#ff0000"],
+                    ];
+
+                    const trace = {
+                        x: data.x,
+                        y: data.y,
+                        z: data.z,
+                        zmin: 0,
+                        zmax: 6,
+                        text: data.text,
+                        customdata: data.customdata, // JSにフルテキストを渡す
+                        type: "heatmap",
+                        colorscale: discreteColorscale,
+                        showscale: false,
+                        hoverinfo: "text", // ツールチップには簡潔な情報のみ表示
+                    };
+
+                    const layout = {
+                        plot_bgcolor: "#0d1117",
+                        paper_bgcolor: "#0d1117",
+                        font: { color: "#c9d1d9" },
+                        xaxis: {
+                            title: "Peak Activation Distance (μ)",
+                            showgrid: false,
+                            zeroline: false,
+                        },
+                        yaxis: {
+                            title: "Intervention Spread (σ)",
+                            showgrid: false,
+                            zeroline: false,
+                            scaleanchor: "x",
+                            scaleratio: 2,
+                        },
+                        hoverlabel: {
+                            bgcolor: "#161b22",
+                            bordercolor: "#444",
+                            font: {
+                                color: "#ffffff",
+                                size: 12,
+                                family: "sans-serif",
+                            },
+                            align: "left",
+                        },
+                        margin: { t: 20, b: 60, l: 60, r: 40 },
+                    };
+
+                    Plotly.newPlot("heatmap", [trace], layout, {
+                        responsive: true,
+                    });
+
+                    // 追加: ホバーイベントのリスナー
+                    const myPlot = document.getElementById("heatmap");
+                    const textBox = document.getElementById("text-box");
+
+                    myPlot.on("plotly_hover", function (eventData) {
+                        const pt = eventData.points[0];
+                        if (pt.customdata) {
+                            // ホバーしたセルのテキストをボックスに流し込む
+                            textBox.innerHTML =
+                                `<strong style="color: #58a6ff;">Generated Text at (μ=${pt.x}, σ=${pt.y}):</strong><br><br>` +
+                                pt.customdata;
+                        }
+                    });
+
+                    // ホバーが外れたら元の説明文に戻す（好みに応じて削除可）
+                    myPlot.on("plotly_unhover", function (eventData) {
+                        textBox.innerHTML =
+                            '<span style="color:#8b949e; font-style: italic;">Hover over any coordinate in the phase diagram to reveal the generated text...</span>';
+                    });
+                });
+        </script>
+    </body>
+</html>

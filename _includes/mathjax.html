@@ -1,0 +1,21 @@
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+            processEscapes: true,
+        },
+    };
+</script>
+<!-- jsdelivr から安定した cdnjs (Cloudflare) へ変更 -->
+<script
+    id="MathJax-script"
+    async
+    src="https://cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"
+></script>
