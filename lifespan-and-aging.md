@@ -20,7 +20,7 @@ _Note: The phenomena presented on this page are preliminary qualitative observat
 #### EKG of Turing Soliton $(\mu, \sigma)=(0.49, 0.03)$:
 
 <p align="center">
-  <img src="./assets/Turing_Soliton_EKG_70b_mu_0-49_sigma_0-03_t800.png" alt="Turing Soliton"  width="90%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+  <img src="./assets/turing_soliton.png" alt="Turing Soliton"  width="90%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 </p>
 
 #### Output Text:
