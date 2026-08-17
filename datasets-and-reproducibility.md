@@ -147,15 +147,10 @@ python code/generate_phase_diagram.py
 
 **Step 1: LLM-as-a-Judge Evaluation**
 Prepare a local LLM (ex. google/gemma-4-31b via LM Studio) to build a taxonomy for a sweep data .
-Open `code/taxonomy_evaluator.py` and check the physical parameters:
+Open `code/taxonomy_evaluator.py` and set your local LLM "MODEL_NAME":
 
-```python
-MODEL_NAME = "llama8b"       # e.g., "llama8b", "gemma7b", "llama70b"
-TASK_NAME = "computer"       # e.g., "computer", "symphony"
-ALPHA = 15                   # Intervention Energy Scaling Factor
-```
-
-This script is designed to be run from the command line. You can specify input_file and output_csv files name via command-line arguments:
+This script is designed to be run from the command line. You should specify input_file and output_csv files name via command-line arguments.
+The task ("brain-symphony" or "happy-computer") is automatically selected from the input_file name you specified:
 
 ```bash
 python code/taxonomy_evaluator.py --input_file data/sweep_computer_llama8b_a15.jsonl --output_csv data/sweep_computer_llama8b_a15.csv

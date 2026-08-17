@@ -15,17 +15,25 @@ MODELS_DIR = {
 
 # Empirical Intervention Energy (Alpha) mapped to manifold rigidity
 ALPHA_MAP = {
-    "llama": 15.0,  
-    "llama70b": 30.0, 
-    "mistral": 5.0,  
-    "gemma": 50.0,  
+    "llama": 15,
+    "llama70b": 30,
+    "mistral": 5,
+    "gemma": 50,
 }
 
-TARGET_TASKs = ["happy-computer"] 
+TARGET_TASKs = ["happy-computer"]
+
 
 def run_experiment(
-    engine, prompt, target_concepts, mode, output_file,
-    mus, sigmas, alpha, seed=42,
+    engine,
+    prompt,
+    target_concepts,
+    mode,
+    output_file,
+    mus,
+    sigmas,
+    alpha,
+    seed=42,
 ):
     if os.path.exists(output_file):
         os.remove(output_file)
@@ -70,6 +78,7 @@ def run_experiment(
             except Exception as e:
                 print(f"    ❌ Error: {e}")
 
+
 def main():
     MODEL_KEY = "llama"  # Switch to "llama70b" for Turing Attractor
 
@@ -106,7 +115,10 @@ def main():
             seed=GLOBAL_SEED,
         )
 
-        print(f"\n✅ All Deterministic Experiments of {MODEL_KEY} for [{TARGET_TASK}] Completed.")
+        print(
+            f"\n✅ All Deterministic Experiments of {MODEL_KEY} for [{TARGET_TASK}] Completed."
+        )
+
 
 if __name__ == "__main__":
     main()
