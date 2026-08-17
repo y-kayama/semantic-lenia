@@ -16,7 +16,7 @@ The interactive companion website, featuring trajectory visualizers, dynamic pha
 
 **Semantic Lenia** bridges the fields of Continuous Artificial Life (Lenia) and Natural Language Processing. Traditionally, steering Large Language Models (LLMs) at decoding time treats generation as a static optimization problem, which often forces the trajectory into local point attractors—a state of low grammatical entropy we define as **"Semantic Crystallization"** (degenerative token looping).
 
-By introducing a non-linear steering force governed by a homeostatic growth function $G(U_t)$, we facilitate the self-organization of **"Autonomous Semantic Solitons"** within the macroscopic logit space. These dissipative structures orbit target conceptual centroids, maintaining a delicate, far-from-equilibrium tension that guarantees high semantic alignment without structural collapse.
+By introducing a non-linear steering force governed by a homeostatic growth function $G(U_t)$, we facilitate the self-organization of **"Semantic Solitons"** within the macroscopic logit space. These dissipative structures orbit target conceptual centroids, maintaining a delicate, far-from-equilibrium tension that guarantees high semantic alignment without structural collapse.
 
 ---
 

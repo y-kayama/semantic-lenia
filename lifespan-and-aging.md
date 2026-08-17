@@ -13,7 +13,7 @@ katex: true
 
 While standard evaluation budgets for decoding-time steering are traditionally capped at a short horizon ($T_{max} = 150$), preliminary extended generations spanning up to **800 tokens** reveal a fascinating temporal phenomenon: **Thermodynamic "Aging"** .
 
-Heavy manifold solitons, such as the _Turing Attractor_ (llama-3.1-70B, Happy $\rightarrow$ Computer, $\alpha=30.0, (\mu, \sigma)=(0.49, 0.03)$ and $(0.495, 0.025)$), demonstrate extraordinary resilience, sustaining stable limit cycles for hundreds of tokens . However, over long horizons, we observe a gradual macroscopic decay of trajectory entropy towards static point attractors . This represents a finite physical lifespan dictated by the physics of autoregressive generation .
+Heavy manifold solitons, such as the _Turing Attractor_ (llama-3.1-70B, Happy $\rightarrow$ Computer, $\alpha=30.0, (\mu, \sigma)=(0.49, 0.03)$ and $(0.495, 0.025)$), demonstrate extraordinary resilience, sustaining stable chaotic-like attractors for hundreds of tokens. However, over long horizons, we observe a gradual macroscopic decay of trajectory entropy towards static point attractors . This represents a finite physical lifespan dictated by the physics of autoregressive generation.
 
 _Note: The phenomena presented on this page are preliminary qualitative observations. A comprehensive, large-scale quantitative thermodynamic analysis of this lifecycle across various substrates is currently under preparation for an upcoming publication._
 

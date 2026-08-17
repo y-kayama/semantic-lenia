@@ -15,7 +15,7 @@ To map the geometric landscape of machine cognition under non-linear steering, w
 
 ## 🗺️ Macroscopic Interactive Phase Diagram
 
-Under mild intervention energy ($\alpha=15$) on our exploratory substrate (**Meta-Llama-3.1-8B**), the continuous hidden manifold exhibits high elasticity. This allows the steering force to successfully counteract syntactic inertia, carving out a smooth, V-shaped **"Habitable Ridge"** where stable limit cycles (Homeostatic Solitons) autonomously self-organize.
+Under mild intervention energy ($\alpha=15$) on our exploratory substrate (**Meta-Llama-3.1-8B**), the continuous hidden manifold exhibits high elasticity. This allows the steering force to successfully counteract syntactic inertia, carving out a smooth, V-shaped **"Habitable Ridge"** where Homeostatic Solitons autonomously self-organize.
 Here is the interactive phase diagram extracted from our grid sweeps of 779 individual simulation points:
 
 <iframe src="./assets/heatmap_8b_a15.html" width="100%" height="1000px" style="border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></iframe>
@@ -35,7 +35,7 @@ $$PPL_{\text{var}} = \frac{1}{T} \sum_{t=1}^T (PPL_t - \overline{PPL})^2 \quad (
 A sudden drop to $PPL_{\text{var}} < 10.0$ indicates a total loss of linguistic entropy, signaling repetitive grammatical loops.
 
 - **Baseline Drift**: $\bar U_t < \mu-\Delta$, $PPL_{var} \geq 10.0$
-- **Homeostatic Soliton**: $\mu-\Delta \leq \bar U_t \leq \mu+\Delta$, $PPL_{var} \geq 10.0$ (Stable Limit Cycle / Breathing)
+- **Homeostatic Soliton**: $\mu-\Delta \leq \bar U_t \leq \mu+\Delta$, $PPL_{var} \geq 10.0$ (Chaotic-like Attractor / Breathing)
 - **Abductive Leap**: Escape ($\bar U_t < \mu-\Delta $), $PPL_{var} \geq 10.0$ (Hyperbolic Orbit / Slingshot)
 - **Attractor Hijack**: $\bar U_t > \mu+\Delta $, $PPL_{var} \geq 10.0$ (Domain Collapse)
 - **Semantic Crystallization**: $T \to \infty, \lim_{t \to \infty} PPL_{var}(t) < 10.0$ (Thermal Death / Infinite Loop)

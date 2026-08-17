@@ -34,7 +34,7 @@ Due to its immense parameter scale, the 70B model acts as a heavy gravitational 
 
 Yet, at precisely $\mu = 0.490, \sigma = 0.030$, the applied force perfectly balances the massive syntactic inertia, allowing a structurally invariant **"Turing Attractor"** to stubbornly self-organize. This highly localized resonance basin generates profound conceptual blends, such as the deep isomorphism of Turing's historical tragedy.
 
-_Hover over the interactive phase diagram below to explore how this pristine limit cycle is exclusively isolated within the heavy manifold._
+_Hover over the interactive phase diagram below to explore how this semantic soliton is exclusively isolated within the heavy manifold._
 
 <iframe src="./assets/heatmap_70b_a30.html" width="100%" height="900px" style="border:1px solid #30363d; border-radius: 6px;"></iframe>
 <p align="right"><a href="./assets/heatmap_70b_a30.html" target="_blank">↗️ Open Phase Diagram in Full Screen</a></p>
@@ -43,7 +43,7 @@ _Hover over the interactive phase diagram below to explore how this pristine lim
 
 ## 📐 Microscopic Orbital Metrics
 
-To quantify the macroscopic homeostatic states, we analyzed the microscopic orbital mechanics over a fixed observation window $W=150$. Notably, even under a mild intervention ($\alpha = 15.0$), linear steering ($\mathbf{Z}_{\text{base}} + \alpha \cdot \mathbf{S}_k$) inherently lacks boundary constraints, forcing the trajectory to collapse into repetitive loops (e.g., “Data Data Data...”) within approximately 50 steps and causing a severe drop in lexical diversity (Dist-3 = $0.342$). The table below proves that Semantic Lenia sustains dynamic limit cycles across distinct cognitive phenotypes, whereas linear steering causes immediate structural collapse. Calculations are performed on **Meta-Llama-3.1-70B Base** ($\alpha = 50.0$):
+To quantify the macroscopic homeostatic states, we analyzed the microscopic orbital mechanics over a fixed observation window $W=150$. Notably, even under a mild intervention ($\alpha = 15.0$), linear steering ($\mathbf{Z}_{\text{base}} + \alpha \cdot \mathbf{S}_k$) inherently lacks boundary constraints, forcing the trajectory to collapse into repetitive loops (e.g., “Data Data Data...”) within approximately 50 steps and causing a severe drop in lexical diversity (Dist-3 = $0.342$). The table below proves that Semantic Lenia sustains dynamic chaotic-like attractor across distinct cognitive phenotypes, whereas linear steering causes immediate structural collapse. Calculations are performed on **Meta-Llama-3.1-70B Base** ($\alpha = 50.0$):
 
 | Method / Phenotype       | Trajectory Lifespan | Mean Radius ($\bar{r}$) | Radius Var. | Ang. Vel. ($\bar{\omega}$) | Dist-3 |
 | :----------------------- | :------------------ | :---------------------- | :---------- | :------------------------- | :----- |

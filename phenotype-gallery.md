@@ -22,7 +22,7 @@ This gallery showcases representative text generation trajectories for each of t
 ### 2. Homeostatic Soliton (Surface Metaphor / Deep Isomorphism)
 
 - **Parameters:** $\alpha = 30.0, \mu = 0.49, \sigma = 0.03$
-- **Dynamics:** Stable Limit Cycle maintaining $PPL_{var} \ge 10.0$.
+- **Dynamics:** Chaotic-like attractor maintaining $PPL_{var} \ge 10.0$.
     > **Generated Text (Turing ):**  
     > "The secret to a happy life is a lot like the secret to a computer algorithm: It all comes down to how you are told to handle inevitable loss. Some computer algorithms handle loss poorly, and some people do, too. Some algorithms handle loss elegantly, and some people handle it that way.<br>
     > Computer people know that there is a real connection here, because Turing was Algorithm Man. He was the first to point out that any process you can describe"

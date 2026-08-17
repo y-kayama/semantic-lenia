@@ -13,7 +13,7 @@ katex: true
 
 **Semantic Lenia** transforms Large Language Model (LLM) inference into a continuous dynamical system within the macroscopic logit space. Traditionally, decoding-time steering treats inference as a static optimization problem, which often forces the generation into local point attractors—a state we define as **"Crystallization"** (degenerative token looping).
 
-By injecting a non-linear steering force governed by a homeostatic growth function $G(U_t)$, we facilitate the self-organization of **"Autonomous Semantic Solitons"**. These dissipative structures orbit the target conceptual centroid, maintaining a delicate far-from-equilibrium tension that guarantees grammatical entropy and high semantic alignment without structural collapse.
+By injecting a non-linear steering force governed by a homeostatic growth function $G(U_t)$, we facilitate the self-organization of **"Semantic Solitons"**. These dissipative structures orbit the target conceptual centroid, maintaining a delicate far-from-equilibrium tension that guarantees grammatical entropy and high semantic alignment without structural collapse.
 
 This site serves as the interactive companion to our manuscript, designed to provide reviewers and researchers with **verifiable, reproducible, and interactive evidence** of these emergent dynamics.
 

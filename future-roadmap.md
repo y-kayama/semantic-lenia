@@ -19,7 +19,7 @@ To overcome these physical limitations, our future research directions expand al
 
 ## 🧠 Axis 1: Ecological "Soft Decay" (Engineered Homeostatic Brakes)
 
-In the current formulation of Semantic Lenia (the _Autonomous_ regime), the system is modulated strictly by the raw, static physics of the growth function $G(U_t)$. In highly rigid task regimes (such as $\alpha = 50$ on heavy substrates), this creates a dangerously narrow **Habitable Ridge**, where microscopic fluctuations can easily push the trajectory past the manifold's elastic boundaries into grammatical collapse.
+In the current formulation of Semantic Lenia, the system is modulated strictly by the raw, static physics of the growth function $G(U_t)$. In highly rigid task regimes (such as $\alpha = 50$ on heavy substrates), this creates a dangerously narrow **Habitable Ridge**, where microscopic fluctuations can easily push the trajectory past the manifold's elastic boundaries into grammatical collapse.
 
 To widen this habitability window, we propose an ecological **Soft Decay** mechanism inspired by biological refractory periods.
 
