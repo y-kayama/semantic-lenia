@@ -14,9 +14,9 @@ The interactive companion website, featuring trajectory visualizers, dynamic pha
 
 ## 🌟 Executive Summary
 
-**Semantic Lenia** bridges the fields of Continuous Artificial Life (Lenia) and Natural Language Processing. Traditionally, steering Large Language Models (LLMs) at decoding time treats generation as a static optimization problem, which often forces the trajectory into local point attractors—a state of low grammatical entropy we define as **"Semantic Crystallization"** (degenerative token looping).
+**Semantic Lenia** bridges the fields of Continuous Artificial Life (Lenia) and Natural Language Processing. Traditionally, decoding-time steering of Large Language Models (LLMs) is dominated by open-loop or unidirectional interventions. Under sufficiently strong steering, generation can enter low-variability repetitive regimes that we operationally describe as **"Semantic Crystallization"**.
 
-By introducing a non-linear steering force governed by a homeostatic growth function $G(U_t)$, we facilitate the self-organization of **"Semantic Solitons"** within the macroscopic logit space. These dissipative structures orbit target conceptual centroids, maintaining a delicate, far-from-equilibrium tension that guarantees high semantic alignment without structural collapse.
+By introducing a state-dependent non-linear steering force governed by a homeostatic growth function $G(U_t)$, we observe bounded **"Semantic Soliton"** regimes in the macroscopic logit-space intervention framework. These trajectories sustain semantic variation around target conceptual centroids while resisting immediate collapse into repetitive or syntactically degraded states. We interpret them as dissipative-like homeostatic dynamics.
 
 ---
 
@@ -36,15 +36,35 @@ If you wish to host and preview the companion web portal locally:
 
 1. Ensure you have **Ruby** and **Bundler** installed.
 2. Install dependencies:
-    ```bash
-    bundle install
-    Run the local Jekyll server:
-    Open your browser and navigate to http://localhost:4000/semantic-lenia/.
-    📄 Licensing & Open-Science Compliance
-    To support open science while maintaining rigorous legal and technical standards, this repository adopts a dual-licensing scheme:
-    Codebase & Software: Licensed under the Apache License 2.0. (See the LICENSE file in the root).
-    Research Datasets: Licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. (See LICENSE_DATA.md or refer to the dataset guidelines conforming to the Japan Link Center (JaLC) standards).
-    ✍️ Citation (Preprint)
-    "Semantic Lenia: Emergence of Homeostatic Solitons within the Semantic Space of Large Language Models"
-    (arXiv:2608.11657).
-    ```
+
+   ```bash
+   bundle install
+   ```
+
+3. Run the local Jekyll server:
+
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+4. Open your browser and navigate to:
+
+   ```text
+   http://localhost:4000/semantic-lenia/
+   ```
+
+---
+
+## 📄 Licensing & Open Science
+
+To support open science, this repository uses a dual-licensing scheme:
+
+- **Codebase & Software:** Apache License 2.0 (see `LICENSE`).
+- **Research Datasets:** Creative Commons Attribution 4.0 International (CC BY 4.0) (see `LICENSE_DATA.md`).
+
+---
+
+## ✍️ Citation (Preprint)
+
+**"Semantic Lenia: Emergence of Homeostatic Solitons within the Semantic Space of Large Language Models"**  
+arXiv:2608.11657.

@@ -1,19 +1,19 @@
 ---
 layout: page
-title: "Soliton Lifespan & Thermodynamic Aging"
+title: "Preliminary Soliton Lifespan & Aging"
 date: 2026-07-27 12:00:00 +0900
 katex: true
 ---
 
 [🏠 Home](./index.html) &nbsp;&bull;&nbsp; [Phase Diagram](./phase-diagram.html) &nbsp;&bull;&nbsp; [Dashboard](./dashboard.html) &nbsp;&bull;&nbsp; [Substrate Rigidity](./substrate-rigidity.html) &nbsp;&bull;&nbsp; [Lifespan & Aging](./lifespan-and-aging.html) &nbsp;&bull;&nbsp; [Gallery](./phenotype-gallery.html) &nbsp;&bull;&nbsp; [Datasets](./datasets-and-reproducibility.html) &nbsp;&bull;&nbsp; [Roadmap](./future-roadmap.html)
 
-# Lifespan and Thermodynamic "Aging" of Semantic Solitons
+# Preliminary Observations on the Lifespan and "Aging" of Semantic Solitons
 
 ## ⏳ The Temporal Dynamics of Semantic Life
 
-While standard evaluation budgets for decoding-time steering are traditionally capped at a short horizon ($T_{max} = 150$), preliminary extended generations spanning up to **800 tokens** reveal a fascinating temporal phenomenon: **Thermodynamic "Aging"** .
+Our primary experiments use a generation horizon of $T_{max}=150$. Preliminary extended generations spanning up to **800 tokens** reveal a slower temporal change that we provisionally describe as **"aging"**. The term is a phenomenological analogy rather than a claim of literal thermodynamic aging.
 
-Heavy manifold solitons, such as the _Turing Attractor_ (llama-3.1-70B, Happy $\rightarrow$ Computer, $\alpha=30.0, (\mu, \sigma)=(0.49, 0.03)$ and $(0.495, 0.025)$), demonstrate extraordinary resilience, sustaining stable chaotic-like attractors for hundreds of tokens. However, over long horizons, we observe a gradual macroscopic decay of trajectory entropy towards static point attractors . This represents a finite physical lifespan dictated by the physics of autoregressive generation.
+Representative 70B Homeostatic Soliton trajectories, including the _Turing Attractor_ (Llama-3.1-70B, Happy $\rightarrow$ Computer, $\alpha=30.0$, near $(\mu,\sigma)=(0.49,0.03)$), can preserve complex recurrent behavior for hundreds of tokens. Over longer horizons, however, we observe increasing repetition and eventual drift toward low-variability repetitive regimes. These observations motivate the hypothesis that Semantic Solitons may have a finite effective lifespan under fixed intervention parameters.
 
 _Note: The phenomena presented on this page are preliminary qualitative observations. A comprehensive, large-scale quantitative thermodynamic analysis of this lifecycle across various substrates is currently under preparation for an upcoming publication._
 
@@ -41,25 +41,25 @@ Computer people know that living beings like us are just algorithms, just patter
 Computer people know that the way to be with sharing your code is like the
 ```
 
-_Observe the onset of senescence in the text above: As the sequence progresses, the escalating syntactic inertia forces the model into an anaphoric loop (repeatedly starting sentences with "Computer people know that..."). This linguistic rigidification physically mirrors the dampening of the orbital amplitude before ultimate thermal death._
+_In this representative trajectory, the later text increasingly repeats the anaphoric pattern "Computer people know that...". We treat this linguistic rigidification as a qualitative sign of long-horizon degradation and compare it with changes in the trajectory metrics. A causal mechanism has not yet been established._
 
-## 🧬 The Physics of Aging: Escalating Syntactic Inertia
+## 🧬 Working Hypothesis: Accumulated-Context Inertia
 
-The fundamental driver of this aging process is the **escalating syntactic inertia** of the accumulated context . In an autoregressive transformer, the state vector $\mathbf{c}_t$ is not memoryless; it dynamically accumulates the latent representations of all historical tokens .
+One working hypothesis is that the accumulated autoregressive context increases effective **Syntactic Inertia**, making later redirection progressively harder. Because the Transformer conditions each step on an expanding context, the effective state is history-dependent rather than memoryless.
 
 $$ \mathbf{Z}_{\text{steered}} = \mathbf{Z}_{\text{base}} + \alpha \cdot G(U_t) \cdot \mathbf{S_k}$$
 
-As $t \to 800$, the context history grows increasingly long and coherent, acting as an increasingly massive gravitational body in latent space .
+As the context becomes longer, its accumulated constraints may alter the balance between the unmodified model logits and the Semantic Lenia intervention.
 
-- **The Gravitational Collapse:** This growing history causes $\mathbf{Z}_{\text{base}}$ (the model's intrinsic syntactic drive) to harden . The "gravitational weight" of this past context eventually overpowers the active semantic force scaled by the intervention energy $\alpha$ .
-- **The Death Spiral:** As the syntactic mass increases, the local gradient of the manifold steepens. The homeostatic growth function $G(U_t)$ can no longer inject sufficient repulsive energy to escape the local wells.
-- **Thermal Death (Crystallization):** The orbital path is progressively dampened, spiraling inward until the angular velocity $\bar{\omega}$ collapses to $0$ rad/s and the system is trapped in a zero-entropy point attractor.
+- **Accumulated Context:** A longer and more repetitive history may increasingly bias $\mathbf{Z}_{\text{base}}$ toward continuation patterns that resist semantic redirection.
+- **Loss of Effective Homeostasis:** Under this hypothesis, the fixed-strength feedback may eventually become insufficient to maintain the same recurrent semantic regime.
+- **Crystallization:** The observed endpoint can become a low-variability repetitive regime. We avoid interpreting this as literal zero entropy or as a mechanically verified point attractor without additional dynamical analysis.
 
 ---
 
-## 📊 The Four Stages of the Soliton Lifecycle
+## 📊 An Illustrative Four-Stage Description
 
-Based on our empirical analysis of Llama-3.1-70B under extended generation, we divide the soliton lifecycle into four distinct thermodynamic phases:
+For the representative Llama-3.1-70B trajectory shown here, the long-horizon behavior can be described heuristically in four approximate stages. These intervals are **illustrative, not established universal phase boundaries**:
 
 ### 1. Capture & Stabilization ($t = 1 \sim 50$)
 
@@ -68,18 +68,18 @@ Based on our empirical analysis of Llama-3.1-70B under extended generation, we d
 
 ### 2. Peak Homeostasis ($t = 50 \sim 300$)
 
-- **Manifold State:** Pristine open-ended dissipative structure.
-- **Characteristics:** The soliton is in its prime. It exhibits stable, rhythmic "breathing" oscillations (robust $\text{Var}(r)$) and high rotational momentum ($\bar{\omega} > 1.0$ rad/s), continuously generating fluent, metaphorical, and highly diverse language.
+- **Manifold State:** Sustained recurrent regime.
+- **Characteristics:** The trajectory exhibits relatively stable "breathing" oscillations in the projected radius together with fluent and diverse generation.
 
 ### 3. Senescence & Radial Shrinkage ($t = 300 \sim 600$)
 
-- **Manifold State:** Gradual entropy loss .
-- **Characteristics:** Due to escalating syntactic inertia, the orbit begins to contract . The mean orbital radius $\bar{r}$ shrinks, the breathing amplitude ($\text{Var}(r)$) dampens, and the Perplexity Variance ($PPL_{var}$) begins a steady downward trend.
+- **Manifold State:** Gradual loss of variability.
+- **Characteristics:** In this example, the projected trajectory becomes less variable while the text develops stronger repetitive structure; $PPL_{var}$ may also decline.
 
 ### 4. Thermal Death / Crystallization ($t > 600$)
 
-- **Manifold State:** Point attractor collapse.
-- **Characteristics:** Homeostasis fails . The trajectory completely collapses into a static loop (infinite token repetition). $PPL_{var}$ falls below the critical threshold of $10.0$, indicating a complete loss of information entropy.
+- **Manifold State:** Crystallized repetitive regime.
+- **Characteristics:** Homeostatic behavior is lost and the generation enters a persistent repetitive loop. In our operational classifier, sufficiently low asymptotic $PPL_{var}$ is associated with this regime.
 
 ---
 
@@ -87,4 +87,4 @@ Based on our empirical analysis of Llama-3.1-70B under extended generation, we d
 
 In classical ALife models, physical laws are simulated on static substrates (e.g., Euclidean grids or continuous mathematical spaces), allowing lifeforms to theoretically live forever if unperturbed.
 
-In **Semantic Lenia**, however, the "universe" is a pre-trained cognitive manifold that dynamically evolves its physical laws (via autoregressive state tracking) as the agent interacts with it. The aging of the semantic soliton is not an accidental bug, but an elegant manifestation of **physical limits embedded within natural language**. It proves that the "life" we cultivate must eventually yield to the deep structural constraints of its host substrate—offering a beautiful, quantifiable parallel to biological mortality.
+In **Semantic Lenia**, the effective generative landscape is history-dependent because each new token changes the context conditioning subsequent steps. This makes long-horizon stability an interesting ALife question in its own right. The apparent "aging" reported here should therefore be viewed as a preliminary analogy that motivates quantitative future work on lifespan, context dependence, and failure modes rather than as a proven analogue of biological mortality.

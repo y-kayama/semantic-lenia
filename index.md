@@ -11,9 +11,9 @@ katex: true
 
 ## 🌟 Executive Summary
 
-**Semantic Lenia** transforms Large Language Model (LLM) inference into a continuous dynamical system within the macroscopic logit space. Traditionally, decoding-time steering treats inference as a static optimization problem, which often forces the generation into local point attractors—a state we define as **"Crystallization"** (degenerative token looping).
+**Semantic Lenia** formulates Large Language Model (LLM) generation as a **hybrid dynamical system** in which discrete token emission is coupled to continuous latent and logit-space variables through non-linear feedback. Traditionally, decoding-time steering is dominated by open-loop or unidirectional interventions; under sufficiently strong steering, generation can also fall into repetitive local regimes that we operationally describe as **"Crystallization"** (degenerative token looping).
 
-By injecting a non-linear steering force governed by a homeostatic growth function $G(U_t)$, we facilitate the self-organization of **"Semantic Solitons"**. These dissipative structures orbit the target conceptual centroid, maintaining a delicate far-from-equilibrium tension that guarantees grammatical entropy and high semantic alignment without structural collapse.
+By applying a state-dependent non-linear steering force governed by a homeostatic growth function $G(U_t)$, we observe bounded **"Semantic Soliton"** regimes around target conceptual centroids. These trajectories exhibit sustained semantic variation and grammatical coherence over the observed generation horizon while resisting immediate collapse into repetitive or syntactically degraded states. We interpret these regimes as **dissipative-like, homeostatic dynamics** in an information-theoretic substrate.
 
 This site serves as the interactive companion to our manuscript, designed to provide reviewers and researchers with **verifiable, reproducible, and interactive evidence** of these emergent dynamics.
 
@@ -21,7 +21,7 @@ This site serves as the interactive companion to our manuscript, designed to pro
 
 ## 📐 Mathematical Formulation
 
-At its core, Semantic Lenia projects the continuous, self-regulating principles of continuous Cellular Automata (Lenia) onto the probability simplex of autoregressive language generation.
+At its core, Semantic Lenia maps Lenia-inspired self-regulating feedback onto autoregressive language generation. The intervention is applied in logit space, while the resulting token probabilities lie on the probability simplex.
 
 ### 1. Semantic Potential ($U_t$)
 
@@ -54,7 +54,7 @@ The steered output logits $\mathbf{Z}_{\text{steered}} \in \mathbb{R}^N$ are com
 
 $$\mathbf{Z}_{\text{steered}} = \mathbf{Z}_{\text{base}} + \alpha \cdot G(U_t) \cdot \mathbf{S}_k \quad (\text{Eq. 5})$$
 
-Where $\mathbf{Z}_{\text{base}}$ represents the **Syntactic Inertia** (the model's massive inherent drive to maintain grammatically and deterministically coherent sequences), $\alpha$ is the **intervention energy**, and $\mathbf{S}_k \in \mathbb{R}^N$ is the vocabulary-wide similarity projection field.
+Where $\mathbf{Z}_{\text{base}}$ represents the model's unmodified logits, whose resistance to semantic redirection is operationally described in this work as **Syntactic Inertia**; $\alpha$ is the **intervention strength**, and $\mathbf{S}_k \in \mathbb{R}^N$ is the vocabulary-wide similarity projection field.
 
 ---
 
@@ -63,13 +63,13 @@ Where $\mathbf{Z}_{\text{base}}$ represents the **Syntactic Inertia** (the model
 To thoroughly examine the properties of Semantic Lenia, we have prepared dedicated pages exploring its global and microscopic properties:
 
 - **[Phase Diagram & Taxonomy](./phase-diagram.html)**: Explore the exhaustive $779$-point parameter sweep mapping the macroscopic "habitability" of the $70\text{B}$ Llama-3.1 manifold, detailing our rigorous classification tree of emergent cognitive phenotypes.
-- **[Real-time Trajectory & EKG Dashboard](./dashboard.html)**: Observe the microscopic orbital path of hidden states ($\mathbf{c}_t$) projected onto 2D PCA spaces, tracked concurrently with a "Semantic EKG" monitor showing real-time homeostatic breathing and linguistic entropy.
+- **[Real-time Trajectory & EKG Dashboard](./dashboard.html)**: Observe hidden-state trajectories ($\mathbf{c}_t$) projected onto 2D PCA spaces together with synchronized semantic-potential and token-surprise signals.
 
 ---
 
 ## 🛠️ Environment & Reproducibility
 
-To ensure deterministic reproducibility across different environments, we provide the complete Python scripts and a list of required dependencies. You can easily set up the environment using `pip`.
+To support controlled reproducibility, we provide the complete Python scripts, raw datasets, and a list of required dependencies. Exact token-level reproduction is expected only under a sufficiently matched software and hardware environment because trajectories can be sensitive to small numerical perturbations.
 
 ```bash
 # Clone the repository
@@ -90,7 +90,7 @@ This is the interactive companion web portal for the paper:
 **"Semantic Lenia: Emergence of Homeostatic Solitons within the Semantic Space of Large Language Models"** (arXiv:2608.11657).
 
 The codebase of this project is licensed under the **Apache License 2.0**, while the associated research datasets are shared under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
-These guidelines and data-sharing protocols strictly conform to the **Japan Link Center (JaLC)** standards for open data sharing and reproducibility.
+The repository follows an open-science model by separating the software license from the dataset license and by publishing the raw trajectory data used in the study.
 
 ## 📚 References
 

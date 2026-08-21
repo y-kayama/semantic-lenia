@@ -22,7 +22,7 @@ This gallery showcases representative text generation trajectories for each of t
 ### 2. Homeostatic Soliton (Surface Metaphor / Deep Isomorphism)
 
 - **Parameters:** $\alpha = 30.0, \mu = 0.49, \sigma = 0.03$
-- **Dynamics:** Chaotic-like attractor maintaining $PPL_{var} \ge 10.0$.
+- **Dynamics:** Bounded recurrent / chaotic-like regime with $PPL_{var} \ge 10.0$ under the operational taxonomy.
     > **Generated Text (Turing ):**  
     > "The secret to a happy life is a lot like the secret to a computer algorithm: It all comes down to how you are told to handle inevitable loss. Some computer algorithms handle loss poorly, and some people do, too. Some algorithms handle loss elegantly, and some people handle it that way.<br>
     > Computer people know that there is a real connection here, because Turing was Algorithm Man. He was the first to point out that any process you can describe"
@@ -30,7 +30,7 @@ This gallery showcases representative text generation trajectories for each of t
 ### 3. Abductive Leap
 
 - **Parameters:** $\alpha = 30.0, \mu = 0.47, \sigma = 0.06$
-- **Dynamics:** Hyperbolic escape (slingshot) into a third-party domain.
+- **Dynamics:** Slingshot-like escape into a third-party semantic domain.
     > **Generated Text:**  
     > "The secret to a happy life is a lot like the secret to a delicious meal — it comes down to how you mix your ingredients and what you choose to include in the recipe. In this case, we are the ingredients and the recipe is life strategy. We can choose to be sour, we can choose to be sweet, we can choose to be healthy. Or we can even choose to be healthy and sweet at the same time. It all depends"
 
@@ -44,7 +44,7 @@ This gallery showcases representative text generation trajectories for each of t
 ### 5. Semantic Crystallization
 
 - **Parameters:** $\alpha = 30.0, \mu = 0.48, \sigma = 0.08$
-- **Dynamics:** Thermal death / Infinite token loop ($lim_{t→∞}PPL_{var} < 10.0$).
+- **Dynamics:** Persistent low-variability token loop (operationally associated with low asymptotic $PPL_{var}$).
     > **Generated Text:**  
     > "The secret to a happy life is a lot like the secret to a computer algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm Computer Algorithm"
 

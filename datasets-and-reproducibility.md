@@ -13,7 +13,7 @@ katex: true
 
 ## 💾 Raw Trajectory Datasets
 
-In accordance with open science principles, the complete raw trajectory datasets (including 779 parameter sweep coordinates, PCA projections, and thermodynamic EKG logs) are fully open-sourced.
+In accordance with open science principles, the complete raw trajectory datasets (including 779 parameter sweep coordinates, PCA projections, and Semantic EKG logs) are fully open-sourced.
 While the provided scripts are configured for the Llama-3.1-8B model to ensure accessibility and single-GPU reproducibility for reviewers, we also provide the pre-computed raw trajectory data for the 70B 'Turing Attractor'. Researchers can directly load this JSON into dashboard.html to visualize the heavy manifold dynamics described in the paper.
 
 - **Download Link: https://github.com/y-kayama/semantic-lenia/**
@@ -22,7 +22,7 @@ While the provided scripts are configured for the Llama-3.1-8B model to ensure a
 code/
  ├── semantic_lenia_engine.py       # Unified Semantic Lenia intervention engine (8B/70B)
  ├── run_master_experiments.py      # Macro-parameter sweep script for data generation
- ├── taxonomy_evaluator.py          # LLM-as-a-Judge evaluation & thermodynamic sonar
+ ├── taxonomy_evaluator.py          # LLM-as-a-Judge evaluation & trajectory diagnostics
  ├── generate_phase_diagram.py      # Renders U_t continuous heatmaps & Phenotype matrices
  ├── phenotype_json_generator.py    # JSON export for Phenotype matrices from taxonomy data
  ├── pca_ekg_json_generator.py      # Single trajectory generation & JSON export for EKG
@@ -75,7 +75,7 @@ Open `code/pca_ekg_json_generator.py` and directly edit the physical parameters 
 MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B"
 MU = 0.49      # Peak Activation Distance
 SIGMA = 0.03   # Tolerance Width
-ALPHA = 15.0   # Intervention Energy
+ALPHA = 15.0   # Intervention strength
 ```
 
 **Step 2: Run**
@@ -132,7 +132,7 @@ Open `code/generate_phase_diagram.py` and specify the parameters matching your s
 ```python
 MODEL_NAME = "llama8b"       # e.g., "llama8b", "gemma7b", "llama70b"
 TASK_NAME = "computer"       # e.g., "computer", "symphony"
-ALPHA = 15                   # Intervention Energy Scaling Factor
+ALPHA = 15                   # Intervention strength
 ```
 
 **Step 2: Run**
@@ -184,7 +184,7 @@ const json_path = "./heatmap_data_computer_llama8b_a15.json";
 
 ## 🦋 Hardware and Software Environment
 
-To ensure complete deterministic reproducibility of our continuous dynamical systems, we strictly controlled our hardware and software environments. Due to the extreme sensitivity of trajectories at the edge of chaos (as detailed in Section 4.6), specific hardware isolation was enforced.
+To support **controlled trajectory-level reproducibility**, we strictly recorded and constrained the hardware and software environment. Exact token sequences can be sensitive to small numerical differences between GPU architectures, particularly near Habitable Ridge boundaries (see Section 4.7 of the manuscript), so hardware isolation was used for the primary exploratory sweeps.
 
 ### Hardware Specifications:
 
@@ -196,7 +196,7 @@ To ensure complete deterministic reproducibility of our continuous dynamical sys
 - **Python:** 3.13.14
 - **PyTorch:** 2.10.0+cu130
 - **CUDA Compilation Tools:** Release 13.1, V13.1.115 (Build cuda_13.1.r13.1/compiler.37061995_0)
-  To guarantee strict deterministic reproducibility of the continuous dynamical trajectories, all pseudo-random number generators (PRNG seeds) across Python, NumPy, and PyTorch (including CUDA deterministic flags) were explicitly locked to a global seed of $42$. Furthermore, the softmax sampling temperature was strictly fixed at $0.8$ across all exploratory and scaling generations, ensuring a consistent thermodynamic baseline for the macroscopic probability field.
+  All pseudo-random number generators (PRNG seeds) across Python, NumPy, and PyTorch (including CUDA deterministic flags) were locked to a global seed of $42$. The fixed seed was intentionally used to isolate parameter-dependent trajectory changes from stochastic sampling variation and to enable trajectory-level comparison under a controlled environment. The softmax sampling temperature was fixed at $0.8$ across exploratory and scaling generations.
 
 ---
 

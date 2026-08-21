@@ -11,9 +11,9 @@ katex: true
 
 ## 🔬 Substrate Phenomenology: Elasticity vs. Rigidity
 
-In continuous Artificial Life, the physical properties of the substrate dictate the morphology and viability of the emergent structures. In **Semantic Lenia**, the host Large Language Model (LLM) acts as this continuous physical medium. Our experiments reveal that different models do not merely represent different weights, but possess fundamentally distinct topological properties—a phenomenon we define as the **Substrate "DNA"** or **Material Rigidity**.
+In continuous Artificial Life, substrate properties strongly influence the morphology and viability of emergent structures. In **Semantic Lenia**, the host Large Language Model (LLM) plays an analogous role. Our experiments show markedly different responses to the same class of non-linear semantic intervention across model families. We use **Substrate "DNA"** and **Material Rigidity** as phenomenological terms for these substrate-dependent response patterns.
 
-We stratify our exploratory substrates to dissect these material properties under semantic pressure, comparing the highly elastic manifold of **Llama-3.1-8B** against the rigid, crystalline structure of **Gemma-7B**.
+We compare **Llama-3.1-8B** and **Gemma-7B** as exploratory substrates to characterize these differences. The terms *elastic* and *crystalline* are descriptive metaphors for the observed intervention-response geometry rather than claims about literal material properties.
 
 ---
 
@@ -34,8 +34,8 @@ We stratify our exploratory substrates to dissect these material properties unde
 </p>
 
 - **Manifold Elasticity:** Under a mild coupling strength ($\alpha = 15.0$), Llama-8B yields smoothly, allowing the autoregressive trajectory to bend into a highly stable, continuous, V-shaped **Habitable Ridge** (as visualized in the macroscopic phase diagrams).
-- **Energy Absorption Mechanism:** When the system is over-steered under extreme coupling pressure, Llama's manifold absorbs the excessive thermodynamic energy by gently wrapping the trajectory into deterministic point attractors—transitioning smoothly into **Semantic Crystallization** (repetitive loops) rather than disintegrating.
-- **Structural Buffer:** The moderate **vocabulary density (~128k tokens)** serves as a robust spatial buffer. This relatively low density allows individual word dimensions to stay close, facilitating fluid metaphorical associations (e.g., _HAPPY $\rightarrow$ COMPUTER_ blending concepts like cache optimization and emotional loss) without fracturing grammatical syntax.
+- **Response to Over-steering:** Under stronger intervention, Llama often transitions from the habitable regime into **Semantic Crystallization** (repetitive loops) rather than immediate syntactic disintegration.
+- **Possible Contributing Factors:** Llama-3.1-8B has a vocabulary of roughly 128k tokens. Vocabulary size, tokenizer design, architecture, pre-training distribution, and other factors may all contribute to the observed flexibility; the present experiments do not isolate their individual causal effects.
 
 ---
 
@@ -51,7 +51,7 @@ In stark contrast, **Gemma-7B** behaves as an extremely rigid, brittle crystalli
 
 - **The Inertial Barrier:** Under mild coupling ($\alpha = 15.0$), Gemma's rigid crystalline shell completely deflects the external semantic force. The steering trajectory is absorbed by the model's massive contextual gravity, remaining trapped in the baseline drift regime.
 - **Abrupt Structural Fracture:** Gemma does not possess a smooth, plastic transition zone. If the intervention energy is increased to overcome this **Inertial Barrier**, the model resists up to a critical threshold, past which it abruptly fractures. This manifests phenomenologically as an immediate transition from baseline drift into complete **Syntactic Rupture** (the structural disintegration of natural language into garbled token streams like _"Data Data Data NN Data"_).
-- **The High-Density Trap:** We hypothesize that this brittle behavior is fundamentally dictated by Gemma's massive **vocabulary density (~256k tokens)**. With double the vocabulary dimensions of Llama, Gemma's high-dimensional simplex is packed tightly with deterministic grammatical attractors. This high density creates an incredibly rigid syntactic shell: either the steering force is too weak to breach the shell, or it is strong enough to shatter the delicate grammatical manifold entirely.
+- **Possible Vocabulary Contribution:** Gemma-7B has a substantially larger vocabulary (~256k tokens). Vocabulary size may contribute to the observed response geometry, but this comparison is confounded by tokenizer design, architecture, training distribution, and other model-specific factors. We therefore treat vocabulary size as a hypothesis to be tested rather than as the established cause of rigidity.
 
 ---
 
@@ -67,4 +67,4 @@ Our 779-point grid sweeps capture this material dichotomy with high quantitative
 | **Response to Over-steering** | Gentle decay into Crystallization | Abrupt fracture into Syntactic Rupture |
 | **Primary Steering Barrier**  | Weak semantic gravity             | High-inertia Crystalline Shield        |
 
-These findings confirm that **Semantic Lenia** is not merely an algorithm running on top of an LLM, but a physical probe that maps the underlying non-linear manifold geometry. The distinct behaviors of these substrates prove that artificial semantic lifeforms must be tailored to the "DNA" of their host environments to achieve true homeostatic survival.
+These findings suggest that **Semantic Lenia** can also serve as a **dynamical probe** for characterizing substrate-dependent responses to non-linear semantic intervention. The observed contrasts motivate a broader investigation of how model architecture, tokenizer design, vocabulary, and training history shape the geometry and stability of homeostatic trajectory regimes.

@@ -11,9 +11,9 @@ katex: true
 
 ## 🗺️ Beyond Autonomous Steering
 
-While **Semantic Lenia** successfully demonstrates the self-organization of stable, macroscopic solitons, the continuous probability simplex of an LLM is a highly constrained ecological environment. Intervening at the final output boundary (logits) forces the system into a high-stakes, zero-sum competition with the model's pre-trained syntactic drive.
+The current Semantic Lenia formulation operates at the final output boundary (logits), where semantic and syntactic constraints have already been combined by the model. This makes the intervention directly compete with the model's unmodified output distribution and can produce a narrow range of stable operating parameters.
 
-To overcome these physical limitations, our future research directions expand along two primary axes: **engineered homeostasis** (soft decay boundaries) and the conceptual transition to **microscopic representation edit loops**.
+Our research program therefore expands along two primary axes: **engineered homeostasis** (soft decay boundaries) and **microscopic representation-level feedback**. The latter direction is currently under active investigation; detailed results will be reported separately.
 
 ---
 
@@ -27,7 +27,7 @@ To widen this habitability window, we propose an ecological **Soft Decay** mecha
 - **Dynamic Dampening:** As this stress metric rises, a dynamic penalty coefficient is applied to the coupling energy, temporarily dampening the active intervention power:
   $$ \alpha_t = \alpha_0 \cdot \exp(-\gamma \cdot \Omega_t) $$
     (Where $\Omega_t$ is the accumulated stress, e.g., rolling variance of perplexity, and $\gamma$ is the decay rate.)
-- **The Result:** This homeostatic feedback brake prevents the trajectory from violently crashing into point attractors (Crystallization) or fracturing (Syntactic Rupture), effectively broadening the Habitable Ridge and significantly extending the lifespan of the semantic soliton.
+- **Expected Effect:** Such a homeostatic feedback brake is hypothesized to reduce abrupt transitions into Crystallization or Syntactic Rupture, potentially broadening the Habitable Ridge and extending the observed lifespan of Semantic Soliton regimes.
 
 ---
 
@@ -35,7 +35,7 @@ To widen this habitability window, we propose an ecological **Soft Decay** mecha
 
 The most fundamental limitation of logit-level intervention is that it operates at the **macro-level**—where meaning (semantics) and grammatical structure (syntax) have already been synthesized and projected onto the final vocab simplex.
 
-To completely decouple semantic exploration from syntactic decay, we propose transitioning from macroscopic probability editing to **microscopic continuous representation steering** within the internal latent layers of the model.
+To reduce the direct coupling between semantic intervention and final token syntax, we are investigating **microscopic continuous representation steering** within internal latent layers of the model.
 
 ```text
 Macroscopic (Logit-Level):
@@ -46,16 +46,16 @@ Macroscopic (Logit-Level):
 Microscopic (Activation-Level):
 [Layer L] ──> [Growth G(Ut)] ──> [Layer L+1] ──> [Vocab Projection]
                                                      │
-                                                     └──> Pure Grammar Maintained
+                                                     └──> Reduced direct interference with output syntax
 ```
 
 ### The Microscopic Framework
 
-By moving the homeostatic feedback loop into the internal hidden layers (inspired by activation steering and representation addition techniques; e.g., Turner et al., 2023), the growth function $G(U_t)$ can modulate the continuous activation path during the forward pass:
+By moving the homeostatic feedback loop into internal hidden layers (inspired by activation steering and representation addition techniques; e.g., Turner et al., 2023), the growth function $G(U_t)$ can modulate a continuous activation trajectory during the forward pass. This direction is currently under active investigation.
 
-1. **Decoupled Mechanics:** The internal semantic representation is gently guided along the desired concept vector, while the upper layer blocks of the Transformer remain completely free to project these thoughts into fluent, grammatically pristine token outputs.
-2. **Resolution of Phenotypic Degeneracy:** On the output simplex, it is often difficult to distinguish a true abductive leap from a spurious thermodynamic escape. Intervening microscopically allows us to trace and guide the genuine internal cognitive coordinates of the system, ensuring that semantic novelty is always backed by robust grammatical coherence.
-3. **Multi-Centroid Complex Dynamics:** Guiding multiple internal layers with different conceptual centroids will allow us to observe more complex, multi-cellular emergent structures—paving the way for the next generation of artificial semantic lifeforms.
+1. **Partially Decoupled Mechanics:** Internal semantic representations can be guided before the final vocabulary projection, potentially reducing direct interference with output syntax.
+2. **Internal Trajectory Analysis:** Output-level behavior can conflate semantic transition with syntactic degradation. Intermediate-layer intervention may make it possible to characterize these effects at the representation level before final token projection.
+3. **Multi-Centroid Complex Dynamics:** Future experiments will test whether different conceptual centroids and layer-specific feedback rules can produce richer multi-regime dynamics.
 
 ---
 
