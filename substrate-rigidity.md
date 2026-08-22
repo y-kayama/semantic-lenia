@@ -19,7 +19,7 @@ We compare **Llama-3.1-8B** and **Gemma-7B** as exploratory substrates to charac
 
 ## 🛞 Llama-3.1-8B: The Elastic Rubber-like Manifold
 
-**Llama-3.1-8B** behaves as a highly elastic, rubber-like manifold capable of smoothly deforming under external steering energy without immediate structural collapse.
+**Llama-3.1-8B** behaves as a highly elastic, rubber-like manifold capable of smoothly deforming under external intervention without immediate structural collapse.
 
 <p align="center">
   <img src="./assets/Fig1_Mean_U_llama_gemma_a15_computer.png" width="90%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
@@ -30,7 +30,7 @@ We compare **Llama-3.1-8B** and **Gemma-7B** as exploratory substrates to charac
   <br>
   <em>(b) Brain &rarr; Symphony, &alpha;=30.0 </em>
   <br>
-  <p><span style="font-weight: bold;">Figure 1 Macroscopic phase diagrams of mean semantic potential (<span style="text-decoration: overline;">U</span><sub>t</sub>) across exploratory substrates under varying task constraints.</span> <span style="font-weight: bold;">(a)</span> presents the low-affinity Happy &rarr; Computer blend under mild coupling (&alpha; = 15.0), and <span style="font-weight: bold;">(b)</span> presents the high-affinity Brain &rarr; Symphony blend under increased coupling (&alpha; = 30.0). The left panels display Llama-3.1-8B exhibiting high manifold elasticity, forming a smooth, V-shaped ``Habitable Ridge'' of sustained potential. The right panels display Gemma-7B exhibiting rigid crystalline deflection at low energy (a-right), with sharp structural breaches appearing only under higher pressure (b-right).</p>
+  <p><span style="font-weight: bold;">Figure 1 Macroscopic phase diagrams of mean semantic potential (<span style="text-decoration: overline;">U</span><sub>t</sub>) across exploratory substrates under varying task constraints.</span> <span style="font-weight: bold;">(a)</span> presents the low-affinity Happy &rarr; Computer blend under mild coupling (&alpha; = 15.0), and <span style="font-weight: bold;">(b)</span> presents the high-affinity Brain &rarr; Symphony blend under increased coupling (&alpha; = 30.0). The left panels display Llama-3.1-8B exhibiting high manifold elasticity, forming a smooth, V-shaped ``Habitable Ridge'' of sustained potential. The right panels display Gemma-7B exhibiting rigid crystalline deflection at weaker intervention (a-right), with sharp structural breaches appearing only under stronger intervention (b-right).</p>
 </p>
 
 - **Manifold Elasticity:** Under a mild coupling strength ($\alpha = 15.0$), Llama-8B yields smoothly, allowing the autoregressive trajectory to bend into a highly stable, continuous, V-shaped **Habitable Ridge** (as visualized in the macroscopic phase diagrams).

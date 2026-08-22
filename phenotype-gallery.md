@@ -11,6 +11,8 @@ katex: true
 
 This gallery showcases representative text generation trajectories for each of the six emergent phenotypes defined in our taxonomy. All examples below were generated using **Llama-3.1-70B** under the _HAPPY $\rightarrow$ COMPUTER_ task.
 
+The public taxonomy contains **six macroscopic phenotype families**. Within the Homeostatic Soliton family, the internal analysis further distinguishes *Deep Isomorphism* and *Surface Metaphor* subtypes.
+
 ### 1. Baseline Drift
 
 - **Parameters:** $\alpha = 30.0, \mu = 0.58, \sigma = 0.01$

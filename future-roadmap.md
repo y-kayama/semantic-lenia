@@ -24,7 +24,7 @@ In the current formulation of Semantic Lenia, the system is modulated strictly b
 To widen this habitability window, we propose an ecological **Soft Decay** mechanism inspired by biological refractory periods.
 
 - **The Refractory Metaphor:** Just as neurons experience a temporary refractory period where they are unresponsive to subsequent stimuli, a steered trajectory can accumulate an internal "stress metric" when forced into extreme semantic potentials.
-- **Dynamic Dampening:** As this stress metric rises, a dynamic penalty coefficient is applied to the coupling energy, temporarily dampening the active intervention power:
+- **Dynamic Dampening:** As this stress metric rises, a dynamic penalty coefficient is applied to the coupling strength, temporarily dampening the active intervention strength:
   $$ \alpha_t = \alpha_0 \cdot \exp(-\gamma \cdot \Omega_t) $$
     (Where $\Omega_t$ is the accumulated stress, e.g., rolling variance of perplexity, and $\gamma$ is the decay rate.)
 - **Expected Effect:** Such a homeostatic feedback brake is hypothesized to reduce abrupt transitions into Crystallization or Syntactic Rupture, potentially broadening the Habitable Ridge and extending the observed lifespan of Semantic Soliton regimes.

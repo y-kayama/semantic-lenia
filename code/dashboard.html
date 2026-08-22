@@ -38,10 +38,10 @@
         </style>
     </head>
     <body>
-        <h2>Semantic Lenia: Real-time Trajectory and Thermodynamic EKG</h2>
+        <h2>Semantic Lenia: Real-time Trajectory and Semantic EKG</h2>
         <p>
-            Press Play or use the slider to observe the correlation between the
-            orbital mechanics and internal stress.
+            Press Play or use the slider to compare the projected latent trajectory,
+            semantic potential, sampled-token surprise signal, and generated text.
         </p>
 
         <div id="dashboard"></div>
@@ -93,7 +93,7 @@
                         mode: "lines+markers",
                         line: { color: "#39FF14", width: 2 },
                         marker: { size: 6, color: "#39FF14" },
-                        name: "Orbit (c_t)",
+                        name: "Projected trajectory (c_t)",
                     };
                     const traceU = {
                         x: [0],
@@ -111,7 +111,7 @@
                         yaxis: "y3",
                         mode: "lines",
                         line: { color: "#FF007F", width: 2 },
-                        name: "PPL",
+                        name: "Token PPL signal",
                     };
 
                     // Layout configuration (Left: PCA, Top-Right: U_t, Bottom-Right: PPL)
@@ -172,7 +172,7 @@
                         yaxis3: {
                             domain: [0, 0.45],
                             anchor: "x3",
-                            title: "Perplexity (Log)",
+                            title: "Sampled-token inverse probability (log)",
                             type: "log",
                             showgrid: true,
                             gridcolor: "#21262d",

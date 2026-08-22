@@ -33,6 +33,8 @@ $$U_t = \frac{\text{sim}(\mathbf{c}_t, \mathbf{k}) + 1.0}{2.0} \quad (\text{Eq. 
 
 Where $C$ represents a multi-token cluster representing a semantic neighborhood (e.g., `{"Computer", "Device", "Memory", "Algorithm", "Data"}`).
 
+_Implementation note:_ In the released code, $\mathbf{c}_t$ is the normalized hidden state of the **final Transformer layer at the current final sequence position**. Each target concept is tokenized with a leading space and, for compatibility with the published experiments, represented by the output-embedding vector of its **first tokenizer token**; the normalized mean of these vectors defines $\mathbf{k}$.
+
 _Methodological Note:_ Using a multi-token cluster acts as a semantic low-pass filter to denoise word-specific syntactic biases and avoids the singularity-induced exclusion of single-word targets.
 
 ### 2. Homeostatic Growth Function ($G(U_t)$)

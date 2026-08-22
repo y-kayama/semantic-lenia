@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 # ==========================================
 MODEL_NAME = "llama8b"  # e.g., "llama8b", "gemma7b", "llama70b"
 TASK_NAME = "computer"  # e.g., "computer", "symphony"
-ALPHA = 15  # Intervention Energy Scaling Factor
+ALPHA = 15  # Intervention strength
 
 JSON_FILE = f"data/sweep_{TASK_NAME}_{MODEL_NAME}_a{ALPHA}.jsonl"
 OUTPUT_IMAGE = f"Fig_Mean_U_{MODEL_NAME}_a{ALPHA}_{TASK_NAME}.png"

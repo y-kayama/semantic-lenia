@@ -18,6 +18,8 @@ The interactive companion website, featuring trajectory visualizers, dynamic pha
 
 By introducing a state-dependent non-linear steering force governed by a homeostatic growth function $G(U_t)$, we observe bounded **"Semantic Soliton"** regimes in the macroscopic logit-space intervention framework. These trajectories sustain semantic variation around target conceptual centroids while resisting immediate collapse into repetitive or syntactically degraded states. We interpret them as dissipative-like homeostatic dynamics.
 
+**Implementation note:** The released code measures $\mathbf{c}_t$ from the final Transformer layer at the current final sequence position. The historical `ppl_t` signal is the instantaneous inverse probability of the sampled token after intervention and temperature scaling; it is not conventional sequence perplexity or Shannon entropy.
+
 ---
 
 ## 📁 Repository Structure

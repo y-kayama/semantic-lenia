@@ -84,10 +84,6 @@
                 Abductive Leap
             </div>
             <div class="legend-item">
-                <div class="color-swatch" style="background: #4b0082"></div>
-                Spurious Escape
-            </div>
-            <div class="legend-item">
                 <div class="color-swatch" style="background: #4169e1"></div>
                 Attractor Hijack
             </div>
@@ -114,24 +110,22 @@
             fetch(json_path)
                 .then((response) => response.json())
                 .then((data) => {
-                    // Define discrete color steps (0 to 7 based on taxonomy 'z' value)
+                    // Define discrete color steps for z = 0..6
                     const discreteColorscale = [
-                        [0 / 8, "#808080"],
-                        [1 / 8, "#808080"], // 0: Baseline
-                        [1 / 8, "#dc143c"],
-                        [2 / 8, "#dc143c"], // 1: Crystallization
-                        [2 / 8, "#FFD700"],
-                        [3 / 8, "#FFD700"], // 2: Deep Isomorphism (3a)
-                        [3 / 8, "#90ee90"],
-                        [4 / 8, "#90ee90"], // 3: Surface Metaphor (3b)
-                        [4 / 8, "#00ffff"],
-                        [5 / 8, "#00ffff"], // 4: True Leap (3c)
-                        [5 / 8, "#4b0082"],
-                        [6 / 8, "#4b0082"], // 5: Spurious Escape (3d)
-                        [6 / 8, "#4169e1"],
-                        [7 / 8, "#4169e1"], // 6: Attractor Hijack
-                        [7 / 8, "#ff0000"],
-                        [1.0, "#ff0000"], // 7: Syntactic Rupture
+                        [0 / 7, "#808080"],
+                        [1 / 7, "#808080"],
+                        [1 / 7, "#dc143c"],
+                        [2 / 7, "#dc143c"],
+                        [2 / 7, "#FFD700"],
+                        [3 / 7, "#FFD700"],
+                        [3 / 7, "#90ee90"],
+                        [4 / 7, "#90ee90"],
+                        [4 / 7, "#00ffff"],
+                        [5 / 7, "#00ffff"],
+                        [5 / 7, "#4169e1"],
+                        [6 / 7, "#4169e1"],
+                        [6 / 7, "#ff0000"],
+                        [1.0, "#ff0000"],
                     ];
 
                     const trace = {
@@ -139,7 +133,7 @@
                         y: data.y,
                         z: data.z,
                         zmin: 0,
-                        zmax: 7, // Adjust max Z value to 7
+                        zmax: 6
                         text: data.text,
                         customdata: data.customdata, // Pass full text for JS event handling
                         type: "heatmap",

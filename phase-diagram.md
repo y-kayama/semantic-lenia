@@ -26,13 +26,17 @@ Here is the interactive phase diagram extracted from our grid sweeps of 779 indi
 
 ## 🧬 Taxonomy of Emergent Phenotypes
 
-To provide a reproducible operational taxonomy, we use a hybrid classification pipeline combining LLM-as-a-Judge semantic evaluation with trajectory-level diagnostics. Semantic phenotype families are assigned from the generated text, while very low sampled-token variability is used as an empirical indicator of Semantic Crystallization.
+To provide a reproducible operational taxonomy, we use a **hybrid classification pipeline** combining LLM-as-a-Judge semantic evaluation with trajectory-level diagnostics. Semantic phenotype families are assigned from the generated text, while very low sampled-token variability is used as an empirical indicator of **Semantic Crystallization**. The public taxonomy contains six macroscopic phenotype families; **Homeostatic Soliton** is further divided into the internal subtypes *Deep Isomorphism* and *Surface Metaphor*.
 
-The **Perplexity Variance** is used here as an empirical measure of **token-level surprise variability** along a trajectory:
+For historical continuity with the manuscript and released datasets, we retain the symbol **Perplexity Variance**. Operationally, however, the per-step quantity is the inverse probability of the sampled token under the temperature-scaled, already-steered next-token distribution:
+
+$$PPL_t = \frac{1}{p(w_t)}$$
+
+where $p(w_t)$ is the probability of the token actually sampled at step $t$ after Semantic Lenia intervention and temperature scaling. Thus, $PPL_t$ is an **instantaneous sampled-token inverse probability**, not conventional sequence perplexity computed from mean negative log-likelihood.
 
 $$PPL_{\text{var}} = \frac{1}{T} \sum_{t=1}^T (PPL_t - \overline{PPL})^2 \quad (\text{Eq. 7})$$
 
-In our classification dataset, $PPL_{\text{var}} < 10.0$ was empirically associated with low-variability repetitive trajectories. This threshold is an operational classifier boundary rather than a direct measurement of Shannon entropy.
+In our classification dataset, $PPL_{\text{var}} < 10.0$ was empirically associated with low-variability repetitive trajectories. This threshold is an **operational classifier boundary**, not a direct measurement of Shannon entropy and not a universal perplexity threshold.
 
 - **Baseline Drift**: $\bar U_t < \mu-\Delta$, $PPL_{var} \geq 10.0$
 - **Homeostatic Soliton**: $\mu-\Delta \leq \bar U_t \leq \mu+\Delta$, $PPL_{var} \geq 10.0$ (bounded recurrent / chaotic-like regime)

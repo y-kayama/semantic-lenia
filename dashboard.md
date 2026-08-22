@@ -43,7 +43,7 @@ _Hover over the interactive phase diagram below to explore how this semantic sol
 
 ## 📐 Microscopic Trajectory Metrics
 
-To quantify representative trajectories, we analyze a fixed observation window $W=150$ using the mean projected radius $\bar r$, the radius variance $\mathrm{Var}(r)$, and Dist-3 lexical diversity. These quantities characterize different aspects of the observed motion, but they do **not** by themselves establish a strict periodic orbit or deterministic chaos.
+To quantify representative trajectories, we analyze a fixed observation window $W=150$ using the mean projected radius $\bar r$, the radius variance $\mathrm{Var}(r)$, and Dist-3 lexical diversity. The synchronized EKG panel additionally displays $PPL_t=1/p(w_t)$, the instantaneous inverse probability of the sampled token under the temperature-scaled, already-steered distribution. These quantities characterize different aspects of the observed motion, but they do **not** by themselves establish a strict periodic orbit or deterministic chaos.
 
 Under mild intervention ($\alpha = 15.0$), conventional linear steering ($\mathbf{Z}_{\text{base}} + \alpha \mathbf{S}_k$) can enter repetitive loops within approximately 50 steps (Dist-3 = $0.342$ in the corresponding 8B experiment). Under the high-intervention 70B comparison shown below ($\alpha=50.0$), linear steering collapses immediately, whereas the Semantic Lenia trajectories remain active up to the maximum observation horizon.
 

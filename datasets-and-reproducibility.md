@@ -61,7 +61,7 @@ For clarity when cross-referencing the dataset with **Table 1 in our manuscript*
 
 ## 🚀 Usage Guide
 
-We provide primary scripts to replicate our findings, located in the `code/` directory.
+We provide the **core generation, parameter-sweep, taxonomy, phase-diagram, and trajectory-visualization scripts** in the `code/` directory, together with the raw datasets used in the study. Additional dynamical analyses reported in the manuscript, including selected recurrence, autocorrelation, hardware-divergence, and long-horizon analyses, are being prepared for release.
 
 ### 1. Generating a Single Trajectory & EKG Dashboard
 
@@ -99,18 +99,20 @@ Open `code/run_master_experiments.py` and directly edit the physical parameters:
 ```python
 # Edit these parameters in the script
 ALPHA_MAP = {
-    "llama": 15.0,  # Highly Elastic
-    # "llama70b": 30.0,  # Heavy Gravitational Inertia
-    # "mistral": 5.0,  # Brittle
-    # "gemma": 30.0,  # Crystalline Rigidity
+    "llama8b": 15.0,
+    "llama70b": 30.0,
+    "mistral7b": 5.0,
+    "gemma7b": 50.0,
 }
 
 TARGET_TASKs = ["happy-computer"] # "brain-symphony"
 
 # inside main()
-MODEL_KEY = "llama"  # "llama", "gemma", "mistral", "llama70b"
+MODEL_KEY = "llama8b"  # "llama8b", "gemma7b", "mistral7b", "llama70b"
 
 ```
+> **Configuration note:** The values in `ALPHA_MAP` are default exploratory settings. Individual published figures may use dataset-specific intervention strengths; the corresponding $\alpha$ value is stated in each figure caption and dataset filename.
+
 
 **Step 2: Run**
 
@@ -118,7 +120,7 @@ MODEL_KEY = "llama"  # "llama", "gemma", "mistral", "llama70b"
 python code/run_master_experiments.py
 ```
 
-(This iteratively generates text across the parameter grid and outputs a .jsonl file containing raw data and perplexity metrics.)
+(This iteratively generates text across the parameter grid and outputs a `.jsonl` file containing raw data and trajectory diagnostics. The historical `ppl_t` field denotes instantaneous sampled-token inverse probability, not conventional sequence perplexity.)
 
 ### 3. Generating the Phase Diagrams
 
