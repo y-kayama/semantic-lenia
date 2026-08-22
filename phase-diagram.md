@@ -26,7 +26,7 @@ Here is the interactive phase diagram extracted from our grid sweeps of 779 indi
 
 ## 🧬 Taxonomy of Emergent Phenotypes
 
-To transition from qualitative evaluation to a rigorous, automated classification framework, we train a shallow decision tree classifier using trajectory-level metrics: **Mean Semantic Potential ($\bar{U}_t$)**, **Perplexity Variance ($PPL_{\text{var}}$)**, and **Step Count ($T$)**.
+To provide a reproducible operational taxonomy, we use a hybrid classification pipeline combining LLM-as-a-Judge semantic evaluation with trajectory-level diagnostics. Semantic phenotype families are assigned from the generated text, while very low sampled-token variability is used as an empirical indicator of Semantic Crystallization.
 
 The **Perplexity Variance** is used here as an empirical measure of **token-level surprise variability** along a trajectory:
 
