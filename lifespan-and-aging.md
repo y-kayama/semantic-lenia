@@ -64,7 +64,7 @@ For the representative Llama-3.1-70B trajectory shown here, the long-horizon beh
 ### 1. Capture & Stabilization ($t = 1 \sim 50$)
 
 - **Manifold State:** Highly volatile.
-- **Characteristics:** The system undergoes a "boundary-crossing shock" as the steering force is first injected. It rapidly sheds unsteered baseline drift energy and settles into the potential well $U_t \approx \mu$.
+- **Characteristics:** The system undergoes a "boundary-crossing shock" as the steering force is first injected. It transitions rapidly away from the initial baseline-drift regime and settles into the potential well $U_t \approx \mu$.
 
 ### 2. Peak Homeostasis ($t = 50 \sim 300$)
 

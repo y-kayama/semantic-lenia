@@ -24,10 +24,10 @@ By introducing a state-dependent non-linear steering force governed by a homeost
 
 ## 📁 Repository Structure
 
-This repository contains both the source files for our Jekyll-powered companion website and the underlying research assets:
+This repository contains both the source files for our Jekyll-powered companion website and the underlying research assets. The current public release contains the core Semantic Lenia generation, parameter-sweep, taxonomy, and trajectory-visualization pipeline. Additional analysis scripts used for selected dynamical diagnostics will be released separately:
 
-- **`.md` files (root)**: The 8-page academic portal, detailing our theoretical framework, taxonomy, substrate rigidity comparisons (Llama vs. Gemma), thermodynamic aging (lifespan up to 800 tokens), and next-generation roadmaps.
-- **`data/`**: The complete raw trajectory datasets, consisting of 779 coordinates from our parameter sweeps, PCA projections, and thermodynamic EKG logs.
+- **`.md` files (root)**: The 8-page academic portal, detailing our theoretical framework, taxonomy, substrate rigidity comparisons (Llama vs. Gemma), long-horizon aging observations (lifespan up to 800 tokens), and next-generation roadmaps.
+- **`data/`**: The complete raw trajectory datasets, consisting of 779 coordinates from our parameter sweeps, PCA projections, and Semantic EKG trajectory logs.
 - **`assets/`**: High-resolution figures, phase diagrams, and animated interactive HTML objects (PCA orbit dashboards and taxonomy heatmaps).
 
 ---
@@ -39,21 +39,21 @@ If you wish to host and preview the companion web portal locally:
 1. Ensure you have **Ruby** and **Bundler** installed.
 2. Install dependencies:
 
-   ```bash
-   bundle install
-   ```
+    ```bash
+    bundle install
+    ```
 
 3. Run the local Jekyll server:
 
-   ```bash
-   bundle exec jekyll serve
-   ```
+    ```bash
+    bundle exec jekyll serve
+    ```
 
 4. Open your browser and navigate to:
 
-   ```text
-   http://localhost:4000/semantic-lenia/
-   ```
+    ```text
+    http://localhost:4000/semantic-lenia/
+    ```
 
 ---
 

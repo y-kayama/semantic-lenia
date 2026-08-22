@@ -13,7 +13,7 @@ katex: true
 
 In continuous Artificial Life, substrate properties strongly influence the morphology and viability of emergent structures. In **Semantic Lenia**, the host Large Language Model (LLM) plays an analogous role. Our experiments show markedly different responses to the same class of non-linear semantic intervention across model families. We use **Substrate "DNA"** and **Material Rigidity** as phenomenological terms for these substrate-dependent response patterns.
 
-We compare **Llama-3.1-8B** and **Gemma-7B** as exploratory substrates to characterize these differences. The terms *elastic* and *crystalline* are descriptive metaphors for the observed intervention-response geometry rather than claims about literal material properties.
+We compare **Llama-3.1-8B** and **Gemma-7B** as exploratory substrates to characterize these differences. The terms _elastic_ and _crystalline_ are descriptive metaphors for the observed intervention-response geometry rather than claims about literal material properties.
 
 ---
 
@@ -50,7 +50,7 @@ In stark contrast, **Gemma-7B** behaves as an extremely rigid, brittle crystalli
 </p>
 
 - **The Inertial Barrier:** Under mild coupling ($\alpha = 15.0$), Gemma's rigid crystalline shell completely deflects the external semantic force. The steering trajectory is absorbed by the model's massive contextual gravity, remaining trapped in the baseline drift regime.
-- **Abrupt Structural Fracture:** Gemma does not possess a smooth, plastic transition zone. If the intervention energy is increased to overcome this **Inertial Barrier**, the model resists up to a critical threshold, past which it abruptly fractures. This manifests phenomenologically as an immediate transition from baseline drift into complete **Syntactic Rupture** (the structural disintegration of natural language into garbled token streams like _"Data Data Data NN Data"_).
+- **Abrupt Structural Fracture:** Gemma does not possess a smooth, plastic transition zone. If the intervention strength is increased to overcome this **Inertial Barrier**, the model resists up to a critical threshold, past which it abruptly fractures. This manifests phenomenologically as an immediate transition from baseline drift into complete **Syntactic Rupture** (the structural disintegration of natural language into garbled token streams like _"Data Data Data NN Data"_).
 - **Possible Vocabulary Contribution:** Gemma-7B has a substantially larger vocabulary (~256k tokens). Vocabulary size may contribute to the observed response geometry, but this comparison is confounded by tokenizer design, architecture, training distribution, and other model-specific factors. We therefore treat vocabulary size as a hypothesis to be tested rather than as the established cause of rigidity.
 
 ---

@@ -50,7 +50,7 @@ For clarity when cross-referencing the dataset with **Table 1 in our manuscript*
 | Phenotype in Manuscript                | Dataset Code | Internal Meaning                            |
 | :------------------------------------- | :----------- | :------------------------------------------ |
 | **Baseline Drift** (Gray)              | `1`          | Pure unsteered trajectory.                  |
-| **Semantic Crystallization** (Crimson) | `2`          | Thermodynamic death / Point attractor.      |
+| **Semantic Crystallization** (Crimson) | `2`          | Low-variability repetitive regime.          |
 | **Homeostatic Soliton** (Light Green)  | `3a`         | Deep Isomorphism (Perfect fusion).          |
 | **Homeostatic Soliton** (Green)        | `3b`         | Surface Metaphor (Associative analogies).   |
 | **Abductive Leap** (Cyan)              | `3c`         | Stable slingshot into a third-party domain. |
@@ -65,7 +65,7 @@ We provide the **core generation, parameter-sweep, taxonomy, phase-diagram, and 
 
 ### 1. Generating a Single Trajectory & EKG Dashboard
 
-If you want to observe a specific semantic soliton and extract its PCA trajectory & thermodynamic EKG (used for our Real-time Dashboard), use the standalone generator.
+If you want to observe a specific semantic soliton and extract its PCA trajectory & Semantic EKG (used for our Real-time Dashboard), use the standalone generator.
 
 **Step 1: Configure**
 Open `code/pca_ekg_json_generator.py` and directly edit the physical parameters at the top of the file:
@@ -111,8 +111,8 @@ TARGET_TASKs = ["happy-computer"] # "brain-symphony"
 MODEL_KEY = "llama8b"  # "llama8b", "gemma7b", "mistral7b", "llama70b"
 
 ```
-> **Configuration note:** The values in `ALPHA_MAP` are default exploratory settings. Individual published figures may use dataset-specific intervention strengths; the corresponding $\alpha$ value is stated in each figure caption and dataset filename.
 
+> **Configuration note:** The values in `ALPHA_MAP` are default exploratory settings. Individual published figures may use dataset-specific intervention strengths; the corresponding $\alpha$ value is stated in each figure caption and dataset filename.
 
 **Step 2: Run**
 
